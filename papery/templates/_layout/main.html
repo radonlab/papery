@@ -1,0 +1,25 @@
+{% from '_widget/navbar.html' import navbar %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}</title>
+  {% block stylesheet %}
+  <link rel="stylesheet" href="{{ static('css/theme.min.css') }}">
+  {% endblock %}
+</head>
+<body>
+{% block navbar %}{{ navbar(current_user) }}{% endblock %}
+
+{{ get_flashed_messages() }}
+
+{% block content %}{% endblock %}
+{% block script %}
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js"></script>
+<script>window.jQuery||document.write("<script src=\"{{ static('vendor/jquery-2.1.0.min.js') }}\"><\/script>")</script>
+<script src="{{ static('js/theme.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>

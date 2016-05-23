@@ -1,0 +1,28 @@
+{% macro navbar(user) %}
+<nav class="navbar">
+  <div class="container">
+    <a class="nav" href="{{ url_for('site.index') }}">Papery</a>
+    <a class="nav toggle rightside arrow-down" href="#" data-toggle="collapse">More</a>
+    <div class="collapse">
+      <ul class="navs">
+        <li><a href="{{ url_for('site.about') }}">About</a></li>
+        <li><a href="{{ url_for('blog.index') }}">Blog</a></li>
+        <li><a href="{{ url_for('blog.index') }}">Note</a></li>
+      </ul>
+      <ul class="navs rightside">
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{{ url_for('auth.profile') }}">
+            <img class="avatar" src="{{ static('default.png') }}" alt="{{ user.username }}">
+            <span>{{ user.username }}</span>
+          </a>
+        </li>
+        {% else %}
+        <li><a href="{{ url_for('auth.login') }}">Log in</a></li>
+        <li><a href="{{ url_for('auth.signup') }}">Sign up</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endmacro %}
