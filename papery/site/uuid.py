@@ -25,8 +25,8 @@ class UUID64(object):
         assert self._number == 0
         self._number = num & 0x3ff
 
-    def set_seq_name(self, name):
-        digest = hashlib.sha1(name.encode('utf-8')).hexdigest()
+    def set_seq_str(self, key):
+        digest = hashlib.sha1(key.encode('utf-8')).hexdigest()
         self.set_seq_number(int(digest, 16))
 
     def generate(self):
@@ -44,4 +44,4 @@ uid = UUID64()
 
 def init_app(app):
     uid.set_epoch(datetime.date(2010, 1, 1))
-    uid.set_seq_name(app.config.get('HOST_NAME', ''))
+    uid.set_seq_str(app.config.get('UUID_SEQ_KEY', ''))
