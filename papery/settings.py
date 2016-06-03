@@ -10,9 +10,26 @@ import os
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 PROJECT_NAME = os.path.basename(PROJECT_ROOT)
 
+WSGI_ENV = os.environ.get('WSGI_ENV', 'production')
+
+DEBUG = WSGI_ENV == 'development'
+
 SECRET_KEY = 'h8b6umefi905'
 
 UUID_SEQ_KEY = PROJECT_NAME + '@mserv1'
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///%s.db' % PROJECT_NAME
+if DEBUG:
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost/papery'
+else:
+    import sae.const
+    SQLALCHEMY_DATABASE_URI = 'mysql://{}:{}@{}/{}'.format(
+        sae.const.MYSQL_USER,
+        sae.const.MYSQL_PASS,
+        sae.const.MYSQL_HOST,
+        sae.const.MYSQL_DB)
+
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+CDN_URL_MAP = {
+  'jquery-2.0.0.min.js': 'http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js'
+}
