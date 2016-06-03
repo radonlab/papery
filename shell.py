@@ -256,15 +256,16 @@ class Shell(object):
                 args[i:i] = args.pop(i)
         self.log.info(u'Calling "{}" ...', u' '.join(args))
         try:
+            code = 0
             proc = subprocess.Popen(args,
                                     stdout=subprocess.PIPE,
                                     stderr=subprocess.STDOUT,
                                     shell=True)
             for line in proc.stdout:
-                self.log.trace(line.decode().rstrip())
+                self.log.trace(line.decode('utf-8').rstrip())
             proc.wait()
             code = proc.returncode
-        except FileNotFoundError:
+        except IOError:
             self.log.alert(u'Unknown command "{}"', args[0])
             code = 2
         finally:
