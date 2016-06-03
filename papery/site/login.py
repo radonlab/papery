@@ -5,14 +5,8 @@ Use of this source code is governed by the MIT license that can be
 found in the LICENSE file.
 """
 
-from flask import url_for
 from flask.ext.login import LoginManager
 from ..auth.models import User
-
-
-def url_for_static(name):
-    return url_for('static', filename=name)
-
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
@@ -26,7 +20,4 @@ def load_user(user_id):
 
 
 def init_app(app):
-    app.jinja_env.globals.update({
-        'static': url_for_static
-    })
     login_manager.init_app(app)
