@@ -6,20 +6,22 @@ found in the LICENSE file.
 """
 
 from flask import Flask
-from . import context
 from . import database
+from . import login
 from . import uuid
 from . import form
+from . import staticfile
 from . import views
 
 __all__ = ['create_app']
 
 
 def init_app(app):
-    context.init_app(app)
     database.init_app(app)
+    login.init_app(app)
     uuid.init_app(app)
     form.init_app(app)
+    staticfile.init_app(app)
     views.init_app(app)
 
 
