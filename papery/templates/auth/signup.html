@@ -1,0 +1,17 @@
+{% extends '_layout/main.html' %}
+{% from '_widget/form.html' import field, input_field %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="small-width center-block">
+    <h4 class="text-center">Sign up a new account</h4>
+    <form action="{{ url_for('auth.signup') }}" method="post">
+      {{ form.hidden_tag() }}
+      {{ input_field(form.email) }}
+      {{ input_field(form.username) }}
+      {{ input_field(form.password) }}
+      {{ field(form.signup, 'button info full-width') }}
+    </form>
+  </div>
+</div>
+{% endblock %}
