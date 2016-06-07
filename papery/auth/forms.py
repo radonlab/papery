@@ -9,7 +9,7 @@ from flask.ext.wtf import Form
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Email, Length
 from .models import User
-from ..site.form import Unique
+from ..site.validators import Unique
 
 
 class SignupForm(Form):

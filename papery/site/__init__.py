@@ -9,8 +9,8 @@ from flask import Flask
 from . import database
 from . import login
 from . import uuid
-from . import form
 from . import shortid
+from . import validators
 from . import staticfile
 from . import views
 
@@ -21,8 +21,8 @@ def init_app(app):
     database.init_app(app)
     login.init_app(app)
     uuid.init_app(app)
-    form.init_app(app)
     shortid.init_app(app)
+    validators.init_app(app)
     staticfile.init_app(app)
     views.init_app(app)
 
