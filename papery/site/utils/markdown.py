@@ -60,7 +60,7 @@ class MarkdownRenderer(object):
         """
         renderer = HighlightRenderer()
         parser = markdown.Markdown(renderer)
-        return parser.parse(string)
+        return parser(string)
 
     def render_file(self, path):
         """
