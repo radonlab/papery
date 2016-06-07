@@ -16,7 +16,7 @@ from ..site.database import db
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate_on_submit():
         user = User(form.email.data,
                     form.username.data,
                     form.password.data)
@@ -30,7 +30,7 @@ def signup():
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate_on_submit():
         username = form.username.data
         password = form.password.data
         user = User.query.filter((User.email == username) |
