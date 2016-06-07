@@ -21,5 +21,5 @@ class Unique(object):
 
     def __call__(self, form, field):
         obj = self.model.query.filter(field.data == self.field).first()
-        if obj:
+        if obj is not None:
             raise ValidationError(self.message)

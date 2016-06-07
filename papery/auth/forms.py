@@ -7,7 +7,7 @@ found in the LICENSE file.
 
 from flask.ext.wtf import Form
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Email, Length
+from wtforms.validators import InputRequired, Email, Length, NoneOf
 from .models import User
 from ..site.validators import Unique
 
@@ -22,6 +22,11 @@ class SignupForm(Form):
     username = StringField('Choose a username',
                            validators=[InputRequired('Required'),
                                        Length(1, 24, '1-24 characters'),
+                                       NoneOf(['signup',
+                                               'login',
+                                               'logout',
+                                               'settings'],
+                                              'Unavailable'),
                                        Unique(User,
                                               User.username,
                                               'Name already exists')])
