@@ -5,8 +5,8 @@ Use of this source code is governed by the MIT license that can be
 found in the LICENSE file.
 """
 
-from flask import render_template, request, redirect, url_for
-from flask.ext.login import login_user, logout_user, login_required
+from flask import render_template, request, redirect, abort, url_for
+from flask.ext.login import current_user, login_user, logout_user, login_required
 from . import auth
 from .forms import SignupForm, LoginForm
 from .models import User
@@ -49,13 +49,23 @@ def logout():
     return redirect(url_for('site.index'))
 
 
-@auth.route('/profile')
+@auth.route('/')
 @login_required
 def profile():
+    posts = current_user.posts
     return render_template('auth/profile.html')
 
 
-@auth.route('/setting')
+@auth.route('/settings')
 @login_required
-def setting():
-    return render_template('auth/profile.html')
+def settings():
+    posts = current_user.posts
+    return render_template('auth/settings.html')
+
+
+@auth.route('/<username>')
+def view(username):
+    user = User.query.filter(User.username == username).first()
+    if user is None:
+        abort(404)
+    return render_template('auth/view.html', user=user)

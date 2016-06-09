@@ -11,17 +11,6 @@
         <h3>{{ current_user.username }}</h3>
         <h4 class="text-muted">{{ current_user.email }}</h4>
       </div>
-      <hr>
-      <div class="row">
-        <div class="pull-right">
-          <a class="button" href="{{ url_for('auth.settings') }}">
-            <span class="octicon octicon-gear"></span> Settings
-          </a>
-          <a class="button danger" href="{{ url_for('auth.logout') }}">
-            <span class="octicon octicon-sign-out"></span> Logout
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </div>
