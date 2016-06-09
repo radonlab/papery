@@ -12,6 +12,7 @@ from . import uuid
 from . import shortid
 from . import validators
 from . import staticfile
+from . import i18n
 from . import views
 
 __all__ = ['create_app']
@@ -24,6 +25,7 @@ def init_app(app):
     shortid.init_app(app)
     validators.init_app(app)
     staticfile.init_app(app)
+    i18n.init_app(app)
     views.init_app(app)
 
 

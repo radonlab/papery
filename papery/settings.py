@@ -18,6 +18,10 @@ SECRET_KEY = 'h8b6umefi905'
 
 UUID_SEQ_KEY = PROJECT_NAME + '@mserv1'
 
+BABEL_DEFAULT_LOCALE = 'zh'
+BABEL_DEFAULT_TIMEZONE = 'Asia/Shanghai'
+ACCEPT_LANGUAGES = ['en', 'zh']
+
 if DEBUG:
     SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost/papery'
 else:
