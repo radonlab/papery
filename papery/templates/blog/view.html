@@ -1,0 +1,10 @@
+{% extends '_layout/main.html' %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<div class="container">
+  {{ content }}
+</div>
+{% endblock %}
+{% block foottag %}
+<link rel="stylesheet" href="{{ static('css/highlight.css') }}">
+{% endblock %}

@@ -8,8 +8,8 @@
     <div class="collapse">
       <ul class="navs">
         <li><a href="{{ url_for('site.about') }}">About</a></li>
-        <li><a href="{{ url_for('blog.index') }}">Blog</a></li>
-        <li><a href="{{ url_for('blog.index') }}">Note</a></li>
+        <li><a href="{{ url_for('blog.explore') }}">Blog</a></li>
+        <li><a href="{{ url_for('blog.vault') }}">Note</a></li>
       </ul>
       <ul class="navs rightside">
         {% if user.is_authenticated %}

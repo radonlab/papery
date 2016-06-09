@@ -18,6 +18,10 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(80), nullable=False, unique=True)
     _password = db.Column('password', db.String(120), nullable=False)
     reg_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    posts = db.relationship('Post',
+                            back_populates='author',
+                            lazy='dynamic',
+                            order_by='desc(Post.pub_time)')
 
     def set_password(self, password):
         self._password = generate_password_hash(password)

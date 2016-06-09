@@ -1,0 +1,19 @@
+{% macro pagination(chunk, endpoint) %}
+<div class="pagination">
+  {% for item in chunk.items %}
+  <div class="row">
+    {{ caller(item) }}
+  </div>
+  <hr>
+  {% endfor %}
+  <div class="row text-center">
+    <a class="button" href="{{ url_for(endpoint, page=chunk.prev_num) }}">
+      <span class="octicon octicon-chevron-left"></span>
+    </a>
+    <span class="spacer">{{ chunk.page }} of {{ chunk.pages }}</span>
+    <a class="button" href="{{ url_for(endpoint, page=chunk.next_num) }}">
+      <span class="octicon octicon-chevron-right"></span>
+    </a>
+  </div>
+</div>
+{% endmacro %}
