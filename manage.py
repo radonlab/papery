@@ -42,6 +42,38 @@ def update_statics(args):
 
 
 @sh.task
+def babel_extract(args):
+    sh.cd('papery')
+    sh.call('pybabel', 'extract',
+            '-F', 'babel.cfg',
+            '-o', 'translations/messages.pot',
+            '.')
+
+
+@sh.task
+def babel_init(args):
+    sh.cd('papery')
+    sh.call('pybabel', 'init',
+            '-i', 'translations/messages.pot',
+            '-d', 'translations',
+            '-l', 'zh')
+
+
+@sh.task
+def babel_compile(args):
+    sh.cd('papery')
+    sh.call('pybabel', 'compile', '-d', 'translations')
+
+
+@sh.task
+def babel_update(args):
+    sh.cd('papery')
+    sh.call('pybabel', 'update',
+            '-i', 'translations/messages.pot',
+            '-d', 'translations')
+
+
+@sh.task
 def initdb(args):
     from papery.site.database import db
     with create_app().app_context():
