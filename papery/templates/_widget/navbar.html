@@ -1,15 +1,15 @@
 {% macro navbar(user) %}
 <nav class="navbar">
   <div class="container">
-    <a class="nav" href="{{ url_for('site.index') }}">Papery</a>
+    <a class="nav" href="{{ url_for('site.index') }}"><b>Papery</b></a>
     <a class="nav toggle rightside" href="#" data-trigger="collapse">
       <span class="octicon octicon-three-bars"></span>
     </a>
     <div class="collapse">
       <ul class="navs">
-        <li><a href="{{ url_for('site.about') }}">About</a></li>
-        <li><a href="{{ url_for('blog.explore') }}">Blog</a></li>
-        <li><a href="{{ url_for('blog.vault') }}">Note</a></li>
+        <li><a href="{{ url_for('site.about') }}">{{ _('About') }}</a></li>
+        <li><a href="{{ url_for('blog.explore') }}">{{ _('Blog') }}</a></li>
+        <li><a href="{{ url_for('blog.vault') }}">{{ _('Note') }}</a></li>
       </ul>
       <ul class="navs rightside">
         {% if user.is_authenticated %}
@@ -20,8 +20,8 @@
           </a>
         </li>
         {% else %}
-        <li><a href="{{ url_for('auth.login') }}">Log in</a></li>
-        <li><a href="{{ url_for('auth.signup') }}">Sign up</a></li>
+        <li><a href="{{ url_for('auth.login') }}">{{ _('Log in') }}</a></li>
+        <li><a href="{{ url_for('auth.signup') }}">{{ _('Sign up') }}</a></li>
         {% endif %}
       </ul>
     </div>

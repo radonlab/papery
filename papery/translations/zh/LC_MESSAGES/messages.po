@@ -1,0 +1,136 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-06-10 21:54+0800\n"
+"PO-Revision-Date: 2016-06-10 15:36+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: auth/forms.py:17
+msgid "Your Email"
+msgstr "邮箱地址"
+
+#: auth/forms.py:18 auth/forms.py:24 auth/forms.py:35 auth/forms.py:42
+#: auth/forms.py:44
+msgid "Required"
+msgstr "必填"
+
+#: auth/forms.py:19
+msgid "Invalid Email"
+msgstr "无效的邮箱地址"
+
+#: auth/forms.py:22
+msgid "Email is already in use"
+msgstr "该邮箱已被使用"
+
+#: auth/forms.py:23
+msgid "Choose a username"
+msgstr "选择用户名"
+
+#: auth/forms.py:25
+msgid "1-24 characters"
+msgstr "1-24个字符"
+
+#: auth/forms.py:30
+msgid "Unavailable"
+msgstr "该名称不可用"
+
+#: auth/forms.py:33
+msgid "Name already exists"
+msgstr "用户名已存在"
+
+#: auth/forms.py:34
+msgid "Create a password"
+msgstr "设置密码"
+
+#: auth/forms.py:36
+msgid "6-20 characters"
+msgstr "6-20个字符"
+
+#: auth/forms.py:37 templates/_widget/navbar.html:24
+msgid "Sign up"
+msgstr "注册"
+
+#: auth/forms.py:41
+msgid "Email or username"
+msgstr "邮箱或用户名"
+
+#: auth/forms.py:43
+msgid "Password"
+msgstr "密码"
+
+#: auth/forms.py:45 templates/_widget/navbar.html:23
+msgid "Log in"
+msgstr "登录"
+
+#: auth/views.py:40
+msgid "Incorrect username or password"
+msgstr "用户名或密码错误"
+
+#: blog/forms.py:15
+msgid "Title"
+msgstr "标题"
+
+#: blog/forms.py:16
+msgid "24 characters at most"
+msgstr "至多24个字符"
+
+#: blog/forms.py:17
+msgid "Tags"
+msgstr "标签"
+
+#: blog/forms.py:18
+msgid "Write your article..."
+msgstr "正文..."
+
+#: blog/forms.py:19
+msgid "Post"
+msgstr "发布"
+
+#: templates/_widget/footer.html:11
+msgid "Contact Me"
+msgstr "联系作者"
+
+#: templates/_widget/navbar.html:10
+msgid "About"
+msgstr "关于"
+
+#: templates/_widget/navbar.html:11
+msgid "Blog"
+msgstr "博客"
+
+#: templates/_widget/navbar.html:12
+msgid "Note"
+msgstr "笔记"
+
+#: templates/auth/login.html:7
+msgid "Log in to your account"
+msgstr "登录账户"
+
+#: templates/auth/profile.html:19
+msgid "Settings"
+msgstr "设置"
+
+#: templates/auth/profile.html:23
+msgid "Logout"
+msgstr "退出"
+
+#: templates/auth/signup.html:7
+msgid "Sign up a new account"
+msgstr "创建账户"
+
+#: templates/blog/explore.html:18
+msgid "Start writing Now!"
+msgstr "开始创作"

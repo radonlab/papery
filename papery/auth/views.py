@@ -7,6 +7,7 @@ found in the LICENSE file.
 
 from flask import render_template, request, redirect, abort, url_for
 from flask.ext.login import current_user, login_user, logout_user, login_required
+from flask.ext.babel import gettext as _
 from . import auth
 from .forms import SignupForm, LoginForm
 from .models import User
@@ -36,7 +37,7 @@ def login():
         user = User.query.filter((User.email == username) |
                                  (User.username == username)).first()
         if user is None or not user.validate(password):
-            form.username.errors.append('Invalid username or password')
+            form.username.errors.append(_('Incorrect username or password'))
         else:
             login_user(user)
             return redirect(request.args.get('next') or url_for('site.index'))

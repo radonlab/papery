@@ -1,0 +1,136 @@
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-06-10 21:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: auth/forms.py:17
+msgid "Your Email"
+msgstr ""
+
+#: auth/forms.py:18 auth/forms.py:24 auth/forms.py:35 auth/forms.py:42
+#: auth/forms.py:44
+msgid "Required"
+msgstr ""
+
+#: auth/forms.py:19
+msgid "Invalid Email"
+msgstr ""
+
+#: auth/forms.py:22
+msgid "Email is already in use"
+msgstr ""
+
+#: auth/forms.py:23
+msgid "Choose a username"
+msgstr ""
+
+#: auth/forms.py:25
+msgid "1-24 characters"
+msgstr ""
+
+#: auth/forms.py:30
+msgid "Unavailable"
+msgstr ""
+
+#: auth/forms.py:33
+msgid "Name already exists"
+msgstr ""
+
+#: auth/forms.py:34
+msgid "Create a password"
+msgstr ""
+
+#: auth/forms.py:36
+msgid "6-20 characters"
+msgstr ""
+
+#: auth/forms.py:37 templates/_widget/navbar.html:24
+msgid "Sign up"
+msgstr ""
+
+#: auth/forms.py:41
+msgid "Email or username"
+msgstr ""
+
+#: auth/forms.py:43
+msgid "Password"
+msgstr ""
+
+#: auth/forms.py:45 templates/_widget/navbar.html:23
+msgid "Log in"
+msgstr ""
+
+#: auth/views.py:40
+msgid "Incorrect username or password"
+msgstr ""
+
+#: blog/forms.py:15
+msgid "Title"
+msgstr ""
+
+#: blog/forms.py:16
+msgid "24 characters at most"
+msgstr ""
+
+#: blog/forms.py:17
+msgid "Tags"
+msgstr ""
+
+#: blog/forms.py:18
+msgid "Write your article..."
+msgstr ""
+
+#: blog/forms.py:19
+msgid "Post"
+msgstr ""
+
+#: templates/_widget/footer.html:11
+msgid "Contact Me"
+msgstr ""
+
+#: templates/_widget/navbar.html:10
+msgid "About"
+msgstr ""
+
+#: templates/_widget/navbar.html:11
+msgid "Blog"
+msgstr ""
+
+#: templates/_widget/navbar.html:12
+msgid "Note"
+msgstr ""
+
+#: templates/auth/login.html:7
+msgid "Log in to your account"
+msgstr ""
+
+#: templates/auth/profile.html:19
+msgid "Settings"
+msgstr ""
+
+#: templates/auth/profile.html:23
+msgid "Logout"
+msgstr ""
+
+#: templates/auth/signup.html:7
+msgid "Sign up a new account"
+msgstr ""
+
+#: templates/blog/explore.html:18
+msgid "Start writing Now!"
+msgstr ""
+

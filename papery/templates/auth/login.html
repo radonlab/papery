@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
   <div class="small-width center-block">
-    <h4 class="text-center">Log in to your account</h4>
+    <h4 class="text-center">{{ _('Log in to your account') }}</h4>
     <form action="{{ url_for('auth.login', next=request.args.next) }}" method="post">
       {{ form.hidden_tag() }}
       {{ input_field(form.username) }}

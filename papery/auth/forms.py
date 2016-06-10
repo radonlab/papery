@@ -6,6 +6,7 @@ found in the LICENSE file.
 """
 
 from flask.ext.wtf import Form
+from flask.ext.babel import lazy_gettext as _
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Email, Length, NoneOf
 from .models import User
@@ -13,32 +14,32 @@ from ..site.validators import Unique
 
 
 class SignupForm(Form):
-    email = StringField('Your Email',
-                        validators=[InputRequired('Required'),
-                                    Email('Invalid Email'),
+    email = StringField(_('Your Email'),
+                        validators=[InputRequired(_('Required')),
+                                    Email(_('Invalid Email')),
                                     Unique(User,
                                            User.email,
-                                           'Email is already in use')])
-    username = StringField('Choose a username',
-                           validators=[InputRequired('Required'),
-                                       Length(1, 24, '1-24 characters'),
+                                           _('Email is already in use'))])
+    username = StringField(_('Choose a username'),
+                           validators=[InputRequired(_('Required')),
+                                       Length(1, 24, _('1-24 characters')),
                                        NoneOf(['signup',
                                                'login',
                                                'logout',
                                                'settings'],
-                                              'Unavailable'),
+                                              _('Unavailable')),
                                        Unique(User,
                                               User.username,
-                                              'Name already exists')])
-    password = PasswordField('Create a password',
-                             validators=[InputRequired('Required'),
-                                         Length(6, 20, '6-20 characters')])
-    signup = SubmitField('Sign up')
+                                              _('Name already exists'))])
+    password = PasswordField(_('Create a password'),
+                             validators=[InputRequired(_('Required')),
+                                         Length(6, 20, _('6-20 characters'))])
+    signup = SubmitField(_('Sign up'))
 
 
 class LoginForm(Form):
-    username = StringField('Email or username',
-                           validators=[InputRequired('Required')])
-    password = PasswordField('Password',
-                             validators=[InputRequired('Required')])
-    login = SubmitField('Log in')
+    username = StringField(_('Email or username'),
+                           validators=[InputRequired(_('Required'))])
+    password = PasswordField(_('Password'),
+                             validators=[InputRequired(_('Required'))])
+    login = SubmitField(_('Log in'))

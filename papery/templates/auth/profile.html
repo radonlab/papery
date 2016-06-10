@@ -15,10 +15,12 @@
       <div class="row">
         <div class="pull-right">
           <a class="button" href="{{ url_for('auth.settings') }}">
-            <span class="octicon octicon-gear"></span> Settings
+            <span class="octicon octicon-gear"></span>
+            {{ _('Settings') }}
           </a>
           <a class="button danger" href="{{ url_for('auth.logout') }}">
-            <span class="octicon octicon-sign-out"></span> Logout
+            <span class="octicon octicon-sign-out"></span>
+            {{ _('Logout') }}
           </a>
         </div>
       </div>
