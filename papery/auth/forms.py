@@ -10,16 +10,12 @@ from flask.ext.babel import lazy_gettext as _
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Email, Length, NoneOf
 from .models import User
-from ..site.validators import Unique
 
 
 class SignupForm(Form):
     email = StringField(_('Your Email'),
                         validators=[InputRequired(_('Required')),
-                                    Email(_('Invalid Email')),
-                                    Unique(User,
-                                           User.email,
-                                           _('Email is already in use'))])
+                                    Email(_('Invalid Email'))])
     username = StringField(_('Choose a username'),
                            validators=[InputRequired(_('Required')),
                                        Length(1, 24, _('1-24 characters')),
@@ -27,10 +23,7 @@ class SignupForm(Form):
                                                'login',
                                                'logout',
                                                'settings'],
-                                              _('Unavailable')),
-                                       Unique(User,
-                                              User.username,
-                                              _('Name already exists'))])
+                                              _('Unavailable'))])
     password = PasswordField(_('Create a password'),
                              validators=[InputRequired(_('Required')),
                                          Length(6, 20, _('6-20 characters'))])

@@ -18,13 +18,19 @@ from ..site.database import db
 def signup():
     form = SignupForm()
     if request.method == 'POST' and form.validate_on_submit():
-        user = User(form.email.data,
-                    form.username.data,
-                    form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return redirect(url_for('site.index'))
+        email = form.email.data
+        username = form.username.data
+        password = form.password.data
+        if User.query.filter(User.email == email).first() is not None:
+            form.email.errors.append(_('Email is already in use'))
+        elif User.query.filter(User.username == username).first() is not None:
+            form.username.errors.append(_('Name already exists'))
+        else:
+            user = User(email, username, password)
+            db.session.add(user)
+            db.session.commit()
+            login_user(user)
+            return redirect(url_for('site.index'))
     return render_template('auth/signup.html', form=form)
 
 
