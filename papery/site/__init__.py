@@ -31,6 +31,6 @@ def init_app(app):
 
 def create_app(basename):
     app = Flask(basename)
-    app.config.from_pyfile('settings.py')
+    app.config.from_pyfile('config.py')
     init_app(app)
     return app
