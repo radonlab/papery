@@ -43,7 +43,7 @@ def login():
         user = User.query.filter((User.email == username) |
                                  (User.username == username)).first()
         if user is None or not user.validate(password):
-            form.username.errors.append(_('Incorrect username or password'))
+            form.password.errors.append(_('Incorrect username or password'))
         else:
             login_user(user)
             return redirect(request.args.get('next') or url_for('site.index'))
