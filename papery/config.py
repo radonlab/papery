@@ -35,5 +35,6 @@ else:
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 CDN_URL_MAP = {
-  'jquery.min.js': '//cdn.bootcss.com/jquery/2.0.0/jquery.min.js'
+  'jquery.min.js': '//cdn.bootcss.com/jquery/2.0.0/jquery.min.js',
+  'jquery.parallax.min.js': '//cdn.bootcss.com/parallax/2.1.3/jquery.parallax.min.js'
 }
