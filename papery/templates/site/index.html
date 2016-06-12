@@ -1,7 +1,40 @@
 {% extends '_layout/main.html' %}
 {% block title %}Home{% endblock %}
+{% block headtag %}
+{{ super() }}
+<style>
+#landscape {
+  background: #6eacff;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.layer {
+  top: 10% !important;
+  left: -5% !important;
+  width: 110%;
+  height: 110%;
+}
+</style>
+{% endblock %}
 {% block content %}
+<header id="landscape">
+  <div class="layer" data-depth="0.2">
+    <img src="{{ static('img/backland.svg') }}">
+  </div>
+  <div class="layer" data-depth="0.4">
+    <img src="{{ static('img/foreland.svg') }}">
+  </div>
+</header>
 <div class="container">
-Home
+  <h1>Welcome to my homepage.</h1>
+  <h3>I'm Tianyu, a <span class="octicon octicon-flame text-danger"></span> web programmer</h3>
+  <h3>Pythoner, JavaScripter and a big fan of new technology.</h3>
 </div>
+{% endblock %}
+{% block foottag %}
+{{ super() }}
+<script src="{{ cdn('jquery.parallax.min.js') }}"></script>
+<script>window.jQuery().parallax||document.write("<script src=\"{{ static('vendor/jquery.parallax.min.js') }}\"><\/script>")</script>
+<script>$('#landscape').parallax();</script>
 {% endblock %}
