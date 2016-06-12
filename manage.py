@@ -38,7 +38,6 @@ def rebuild_theme(args):
 def update_statics(args):
     sh.cpdir('theme/dist/js', 'papery/static/js')
     sh.cpdir('theme/dist/fonts', 'papery/static/fonts')
-    sh.cpdir('theme/dist/vendor', 'papery/static/vendor')
 
 
 @sh.task

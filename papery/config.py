@@ -35,5 +35,5 @@ else:
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 CDN_URL_MAP = {
-  'jquery-2.0.0.min.js': 'http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js'
+  'jquery.min.js': '//cdn.bootcss.com/jquery/2.0.0/jquery.min.js'
 }
