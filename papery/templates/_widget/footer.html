@@ -8,7 +8,10 @@
     with
     <span class="octicon octicon-heart"></span>
     <div class="pull-right">
-      <a class="text-muted" href="mailto:letianyu@aliyun.com">{{ _('Contact Me') }}</a>
+      <a class="text-muted" href="mailto:{{ config.MASTER_EMAIL }}">
+        <span class="octicon octicon-mail"></span>
+        {{ _('Contact Me') }}
+      </a>
     </div>
   </div>
 </footer>

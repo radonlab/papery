@@ -9,6 +9,7 @@ import os
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 PROJECT_NAME = os.path.basename(PROJECT_ROOT)
+MASTER_EMAIL = 'letianyu@aliyun.com'
 
 WSGI_ENV = os.environ.get('WSGI_ENV', 'production')
 
