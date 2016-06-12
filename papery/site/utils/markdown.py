@@ -37,12 +37,12 @@ class HighlightRenderer(markdown.HtmlRenderer):
     """
     The renderer focused on markdown code processing.
     """
-    def block_code(self, code, lang=None):
+    def blockcode(self, code, lang=None):
         try:
-            if lang is None:
-                lexer = lexers.guess_lexer(code)
-            else:
+            if lang is not None:
                 lexer = lexers.get_lexer_by_name(lang)
+            else:
+                lexer = lexers.guess_lexer(code)
         except ClassNotFound:
             lexer = lexers.TextLexer()
         formatter = HighlightFormatter()
@@ -59,7 +59,7 @@ class MarkdownRenderer(object):
         Render from markdown formatted string.
         """
         renderer = HighlightRenderer()
-        parser = markdown.Markdown(renderer)
+        parser = markdown.Markdown(renderer, extensions=['fenced-code'])
         return parser(string)
 
     def render_file(self, path):
