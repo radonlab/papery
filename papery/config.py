@@ -23,16 +23,7 @@ BABEL_DEFAULT_LOCALE = 'zh'
 BABEL_DEFAULT_TIMEZONE = 'Asia/Shanghai'
 ACCEPT_LANGUAGES = ['en', 'zh']
 
-if DEBUG:
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost/papery'
-else:
-    import sae.const
-    SQLALCHEMY_DATABASE_URI = 'mysql://{}:{}@{}/{}'.format(
-        sae.const.MYSQL_USER,
-        sae.const.MYSQL_PASS,
-        sae.const.MYSQL_HOST,
-        sae.const.MYSQL_DB)
-
+SQLALCHEMY_DATABASE_URI = 'sqlite:///{}/{}.db'.format(PROJECT_ROOT, PROJECT_NAME)
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 CDN_URL_MAP = {
