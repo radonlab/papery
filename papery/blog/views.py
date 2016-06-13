@@ -28,8 +28,8 @@ def view(post_id):
     post = Post.query.get(decode(post_id))
     if post is None:
         abort(404)
-    content = Markup(MarkdownRenderer().render_text(post.body))
-    return render_template('blog/view.html', content=content)
+    post.body = Markup(MarkdownRenderer().render_text(post.body))
+    return render_template('blog/view.html', post=post)
 
 
 @blog.route('/write', methods=['GET', 'POST'])

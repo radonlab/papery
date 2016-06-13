@@ -1,8 +1,24 @@
 {% extends '_layout/main.html' %}
 {% block title %}Blog{% endblock %}
 {% block content %}
+<header>
+  <div class="container">
+    <h1>{{ post.title }}</h1>
+    <p class="h4">
+      <span class="text-muted spacer">{{ post.pub_time | dateformat('full') }}</span>
+      <a class="text-muted" href="{{ url_for('auth.view', username=post.author.username) }}">
+        <img class="avatar" src="{{ avatar(post.author.email, 24) }}" width="24" height="24">
+        {{ post.author.username }}
+      </a>
+    </p>
+  </div>
+</header>
 <div class="container">
-  {{ content }}
+  <section class="post medium-width">
+    <hr>
+    {{ post.body }}
+    <p class="text-muted text-right">{{ post.mod_time | datetimeformat }}</p>
+  </section>
 </div>
 {% endblock %}
 {% block foottag %}
