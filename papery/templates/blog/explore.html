@@ -13,11 +13,11 @@
 </style>
 {% endblock %}
 {% block content %}
-<div class="header full-width">
+<header class="header full-width">
   <div class="container medium-width">
     <a class="button success" href="{{ url_for('blog.write') }}">{{ _('Start writing Now!') }}</a>
   </div>
-</div>
+</header>
 <div class="container medium-width">
   {% call(post) pagination(posts, 'blog.explore') %}
   <h3>
