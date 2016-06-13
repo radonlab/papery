@@ -13,7 +13,7 @@ from wtforms.validators import Length
 
 class EditForm(Form):
     title = StringField(_('Title'),
-                        validators=[Length(0, 24, _('24 characters at most'))])
+                        validators=[Length(0, 48, _('48 characters at most'))])
     tags = StringField(_('Tags'))
     body = TextAreaField(_('Write your article...'))
     post = SubmitField(_('Post'))
