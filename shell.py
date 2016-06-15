@@ -36,7 +36,7 @@ class Logger(object):
     LEV_ERROR = 1
 
     def __init__(self):
-        self.colored = True
+        self.colored = False
         self.level = Logger.LEV_NORMAL
         self.warning_count = 0
         self.error_count = 0
