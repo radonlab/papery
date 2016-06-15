@@ -1,5 +1,0 @@
-Flask-Babel==0.11.1
-Flask-Login==0.3.2
-Flask-WTF==0.12
-hashids==1.1.0
-Pygments==2.1.3
