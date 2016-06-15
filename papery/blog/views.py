@@ -5,7 +5,7 @@ Use of this source code is governed by the MIT license that can be
 found in the LICENSE file.
 """
 
-from flask import render_template, request, redirect, abort, url_for, Markup
+from flask import render_template, request, redirect, abort, url_for
 from flask.ext.login import current_user, login_required
 from . import blog
 from .forms import EditForm
@@ -13,7 +13,6 @@ from .models import Post, Tag
 from ..auth.models import User
 from ..site.database import db
 from ..site.shortid import encode, decode
-from ..site.utils.markdown import MarkdownRenderer
 
 
 @blog.route('/')
@@ -28,7 +27,6 @@ def view(post_id):
     post = Post.query.get(decode(post_id))
     if post is None:
         abort(404)
-    post.body = Markup(MarkdownRenderer().render_text(post.body))
     return render_template('blog/view.html', post=post)
 
 

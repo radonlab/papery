@@ -54,23 +54,7 @@ class ExtRenderer(markdown.HtmlRenderer):
         return '<table class="table bordered">\n{}</table>\n'.format(content)
 
 
-class MarkdownRenderer(object):
-    """
-    Markdown renderer for pygments style.
-    """
-
-    def render_text(self, string):
-        """
-        Render from markdown formatted string.
-        """
-        renderer = ExtRenderer()
-        parser = markdown.Markdown(renderer, extensions=MARKDOWN_EXTS)
-        return parser(string)
-
-    def render_file(self, path):
-        """
-        Render from markdown formatted file.
-        """
-        with open(path, 'r') as fp:
-            text = fp.read()
-        return render_text(text)
+def render_text(text):
+    renderer = ExtRenderer()
+    parser = markdown.Markdown(renderer, extensions=MARKDOWN_EXTS)
+    return parser(text)

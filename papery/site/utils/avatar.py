@@ -12,6 +12,6 @@ AVATAR_PROVIDER = 'www.gravatar.com'
 
 
 def url_for_avatar(email, size, alter=None):
-    digest = hashlib.md5(email.lower()).hexdigest()
+    digest = hashlib.md5(email.lower().encode('utf-8')).hexdigest()
     params = url_encode({ 's': size, 'd': alter })
     return 'http://{}/avatar/{}?{}'.format(AVATAR_PROVIDER, digest, params)

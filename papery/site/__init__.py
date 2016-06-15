@@ -11,7 +11,8 @@ from . import login
 from . import form
 from . import uuid
 from . import shortid
-from . import staticfile
+from . import statics
+from . import filters
 from . import i18n
 from . import views
 
@@ -24,7 +25,8 @@ def init_app(app):
     form.init_app(app)
     uuid.init_app(app)
     shortid.init_app(app)
-    staticfile.init_app(app)
+    statics.init_app(app)
+    filters.init_app(app)
     i18n.init_app(app)
     views.init_app(app)
 

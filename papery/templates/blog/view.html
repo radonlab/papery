@@ -1,8 +1,8 @@
 {% extends '_layout/main.html' %}
 {% block title %}Blog{% endblock %}
 {% block content %}
-<header>
-  <div class="container">
+<header class="container">
+  <div class="medium-width">
     <h1>{{ post.title }}</h1>
     <p class="h4">
       <span class="text-muted spacer">{{ post.pub_time | dateformat('full') }}</span>
@@ -11,12 +11,12 @@
         {{ post.author.username }}
       </a>
     </p>
+    <hr>
   </div>
 </header>
 <div class="container">
   <section class="post medium-width">
-    <hr>
-    {{ post.body }}
+    {{ post.body | markdown | safe }}
     <p class="text-muted text-right">{{ post.mod_time | datetimeformat }}</p>
   </section>
 </div>
