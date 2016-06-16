@@ -23,7 +23,13 @@ BABEL_DEFAULT_LOCALE = 'zh'
 BABEL_DEFAULT_TIMEZONE = 'Asia/Shanghai'
 ACCEPT_LANGUAGES = ['en', 'zh']
 
-SQLALCHEMY_DATABASE_URI = os.environ['OPENSHIFT_MYSQL_DB_URL']
+SQLALCHEMY_DATABASE_URI = 'mysql://{}:{}@{}:{}/{}'.format(
+    os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
+    os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
+    os.environ['OPENSHIFT_MYSQL_DB_HOST'],
+    os.environ['OPENSHIFT_MYSQL_DB_PORT'],
+    os.environ['OPENSHIFT_APP_NAME']
+)
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 CDN_URL_MAP = {
