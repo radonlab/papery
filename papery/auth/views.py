@@ -26,10 +26,11 @@ def signup():
         elif User.query.filter(User.username == username).first() is not None:
             form.username.errors.append(_('Name already exists'))
         else:
-            user = User(email, username, password)
-            db.session.add(user)
-            db.session.commit()
-            login_user(user)
+            # NOTICE: disable signup
+            # user = User(email, username, password)
+            # db.session.add(user)
+            # db.session.commit()
+            # login_user(user)
             return redirect(url_for('site.index'))
     return render_template('auth/signup.html', form=form)
 
