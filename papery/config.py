@@ -15,7 +15,7 @@ WSGI_ENV = os.environ.get('WSGI_ENV', 'production')
 
 DEBUG = WSGI_ENV == 'development'
 
-SECRET_KEY = 'h8b6umefi905'
+SECRET_KEY = os.environ['OPENSHIFT_SECRET_TOKEN']
 
 UUID_SEQ_KEY = PROJECT_NAME + '@mserv1'
 
