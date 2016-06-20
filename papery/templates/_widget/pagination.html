@@ -1,0 +1,31 @@
+{% macro pagination(chunk, endpoint) %}
+<div class="pagination">
+  {% for item in chunk.items %}
+  <div class="row">
+    {{ caller(item) }}
+  </div>
+  <hr>
+  {% endfor %}
+  <div class="row text-center">
+    {% if chunk.has_prev %}
+    <a class="button" href="{{ url_for(endpoint, page=chunk.prev_num) }}">
+      <span class="octicon octicon-chevron-left"></span>
+    </a>
+    {% else %}
+    <span class="button">
+      <span class="text-muted octicon octicon-chevron-left"></span>
+    </span>
+    {% endif %}
+    <span class="spacer">{{ chunk.page }} of {{ chunk.pages }}</span>
+    {% if chunk.has_next %}
+    <a class="button" href="{{ url_for(endpoint, page=chunk.next_num) }}">
+      <span class="octicon octicon-chevron-right"></span>
+    </a>
+    {% else %}
+    <span class="button">
+      <span class="text-muted octicon octicon-chevron-right"></span>
+    </span>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}

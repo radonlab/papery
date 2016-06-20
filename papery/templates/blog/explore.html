@@ -1,0 +1,42 @@
+{% extends '_layout/main.html' %}
+{% from '_widget/pagination.html' import pagination %}
+{% block title %}Explore{% endblock %}
+{% block headtag %}
+{{ super() }}
+<style>
+.header {
+  background-color: #628cff;
+  padding: 2rem 0;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+</style>
+{% endblock %}
+{% block content %}
+<header class="header full-width">
+  <div class="container medium-width">
+    <a class="button success" href="{{ url_for('blog.write') }}">{{ _('Start writing Now!') }}</a>
+  </div>
+</header>
+<div class="container medium-width">
+  {% call(post) pagination(posts, 'blog.explore') %}
+  <h3>
+    <a href="{{ url_for('blog.view', post_id=shortid(post.id)) }}">{{ post.title }}</a>
+  </h3>
+  <p>
+    <span class="octicon octicon-calendar"></span>
+    <span>{{ post.pub_time | dateformat }}</span>
+    <span class="spacer">
+      <a href="{{ url_for('auth.view', username=post.author.username) }}">
+        <img class="avatar" src="{{ avatar(post.author.email, 18) }}" width="18" height="18">
+        {{ post.author.username }}
+      </a>
+    </span>
+  </p>
+  <p>
+    {{ post.body[0:80] }}...
+    <a href="{{ url_for('blog.view', post_id=shortid(post.id)) }}">More</a>
+  </p>
+  {% endcall %}
+</div>
+{% endblock %}

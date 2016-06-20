@@ -1,0 +1,17 @@
+{% extends '_layout/main.html' %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="clearfix">
+    <div class="pull-left spacer">
+      <img class="avatar" src="{{ avatar(current_user.email, 80) }}" width="80" height="80">
+    </div>
+    <div class="pull-left spacer small-width">
+      <div class="row">
+        <h3>{{ current_user.username }}</h3>
+        <h4 class="text-muted">{{ current_user.email }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends '_layout/main.html' %}
+{% from '_widget/form.html' import field, input_field %}
+{% block title %}Edit{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="medium-width center-block">
+    <form action="{{ url_for('blog.write') }}" method="post">
+      {{ form.hidden_tag() }}
+      {{ input_field(form.title) }}
+      {{ input_field(form.tags) }}
+      {{ input_field(form.body) }}
+      {{ field(form.post, 'button info pull-right') }}
+    </form>
+  </div>
+</div>
+{% endblock %}

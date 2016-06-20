@@ -1,0 +1,34 @@
+{% extends '_layout/base.html' %}
+{% from '_widget/navbar.html' import navbar %}
+{% from '_widget/footer.html' import footer %}
+{% block headtag %}
+{{ super() }}
+<style>
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 6rem;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  border-top: 1px solid #e0e0e0;
+}
+</style>
+{% endblock %}
+{% block maintag %}
+  {% block header %}
+  {{ navbar(current_user) }}
+  {% endblock %}
+  {% block content %}{% endblock %}
+  {% block footer %}
+  {{ footer() }}
+  {% endblock %}
+{% endblock %}
+{% block foottag %}
+{% include '_widget/tracker.html' %}
+{% endblock %}

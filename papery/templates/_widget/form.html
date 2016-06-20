@@ -1,0 +1,16 @@
+{% macro field(widget, clz) %}
+<div class="field">
+  {{ widget(class_=clz) }}
+</div>
+{% endmacro %}
+
+{% macro input_field(widget) %}
+<div class="field{% if widget.errors %} group{% endif %}">
+  {% if widget.errors %}
+  {{ widget(class_='control border-danger', placeholder=widget.label.text) }}
+  <span class="addon text-danger">{{ widget.errors|join(', ') }}</span>
+  {% else %}
+  {{ widget(class_='control', placeholder=widget.label.text) }}
+  {% endif %}
+</div>
+{% endmacro %}
